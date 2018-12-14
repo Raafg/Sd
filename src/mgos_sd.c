@@ -5,16 +5,12 @@
 #include <sys/unistd.h>
 #include <sys/stat.h>
 #include <sys/dirent.h>
-//#include "sdkconfig.h"
 #include "esp_err.h"
 #include "esp_log.h"
 #include "esp_vfs.h"
 #include "esp_vfs_fat.h"
-//#include "freertos/task.h"
-//#include "driver/sdmmc_host.h"
 #include "driver/sdspi_host.h"
 #include "sdmmc_cmd.h"
-// #include "dirent.h"
 
 #include "mgos_sd.h"
 
@@ -66,10 +62,10 @@ bool mgos_sd_init(void)
                           "Make sure SD card lines have pull-up resistors in place.",
                      ret);
         }
-        return false;
+        return 0;
     }
 
     // Card has been initialized, print its properties
     sdmmc_card_print_info(stdout, card);
-    return true;
+    return 1;
 }

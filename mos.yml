@@ -26,8 +26,6 @@ config_schema:
  - ["sd_spi.pin_cs", "i", 13, {title: "SD SPI cs"}]     # hardwired for Lolin32 Pro
   
 
-libs:
-
 build_vars:
   ESP_IDF_EXTRA_COMPONENTS: "${build_vars.ESP_IDF_EXTRA_COMPONENTS} fatfs sdmmc wear_levelling"
   
