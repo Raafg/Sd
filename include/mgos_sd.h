@@ -1,13 +1,11 @@
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
-bool mgos_gps_init(void);
 
+bool mgos_sd_init(void);
 
 #ifdef __cplusplus
 }
-#endif
-
-
-
+#endif  /* __cplusplus */
