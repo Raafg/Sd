@@ -1,0 +1,37 @@
+author: mongoose-os
+description: A demo Mongoose OS firmware for C/C++
+version: 1.0
+
+libs_version: ${mos.version}
+modules_version: ${mos.version}
+mongoose_os_version: ${mos.version}
+
+tags:
+  - c
+
+sources:
+  - src
+
+includes:
+  - include
+
+filesystem:
+  - fs
+
+config_schema:
+ - ["sd_spi", "o", {title: "SD SPI settings"}]
+ - ["sd_spi.pin_miso", "i", 2, {title: "SD SPI miso"}]  # hardwired for Lolin32 Pro
+ - ["sd_spi.pin_mosi", "i", 15, {title: "SD SPI mosi"}] # hardwired for Lolin32 Pro
+ - ["sd_spi.pin_clk", "i", 14, {title: "SD SPI clk"}]   # hardwired for Lolin32 Pro
+ - ["sd_spi.pin_cs", "i", 13, {title: "SD SPI cs"}]     # hardwired for Lolin32 Pro
+  
+
+libs:
+
+build_vars:
+  ESP_IDF_EXTRA_COMPONENTS: "${build_vars.ESP_IDF_EXTRA_COMPONENTS} fatfs sdmmc wear_levelling"
+  
+
+# Used by the mos tool to catch mos binaries incompatible with this file format
+manifest_version: 2017-05-18
+
